@@ -1,0 +1,6 @@
+<!doctype html><html lang="kk"><meta charset="utf-8"><title>Тәрбие әлемі</title><script>
+const [route,query='']=location.hash.replace(/^#\//,'').split('?');let target='index.html';let m;
+if((m=route.match(/^grade\/(\d{1,2})$/))&&+m[1]>=1&&+m[1]<=11)target='classes/grade-'+m[1].padStart(2,'0')+'/index.html';
+if((m=route.match(/^lesson\/g(\d{2})-t(\d{2})$/))&&+m[1]>=1&&+m[1]<=11&&+m[2]>=1&&+m[2]<=30)target='classes/grade-'+m[1]+'/topics/topic-'+m[2]+'.html';
+const params=new URLSearchParams(query),section=params.get('section');location.replace(target+(query?'?'+query:'')+(section?'#'+encodeURIComponent(section):''));
+</script><a href="index.html">Тәрбие әлемін ашу</a></html>
